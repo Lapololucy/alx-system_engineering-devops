@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -c false /etc/passwd
+grep -1 "root" -A 3  /etc/passwd
