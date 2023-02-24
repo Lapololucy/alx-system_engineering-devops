@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Create PID file
+echo $$ > /var/run/myscript.pid
+
+# Define signal handlers
+function sigterm_handler {
+    rm /var/run/myscript.pid
+    echo "Received SIGTERM or SIGQUIT signal. Terminating..."
+    exit 0
+}
+
+function sigint_handler {
+    echo "Y U no love me?!"
+}
+
+function sigkill_handler {
+    echo "I hate the kill command!"
+}
+
+trap sigterm_handler TERM QUIT
+trap sigint_handler INT
+trap sigkill_handler KILL
+
+# Display messages
+echo "To infinity and beyond!"
+
+# Loop indefinitely
+while true; do
+    sleep 1
+done
+
