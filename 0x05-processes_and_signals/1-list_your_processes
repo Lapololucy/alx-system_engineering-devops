@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displays a list of currently running processes.
+
+
+echo "Currently running processes:"
+echo "============================"
+ps axjf
