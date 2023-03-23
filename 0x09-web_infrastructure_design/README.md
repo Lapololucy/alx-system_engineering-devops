@@ -1,5 +1,6 @@
 WEB INFRASTRUCTURE DESIGN
-$'/c/Users/P\'LUCY/Desktop/alx pre coure/WEB INFRA 1.png'
+
+![WEB INFRA 1](https://user-images.githubusercontent.com/113608901/227137232-443b7e8a-3ecb-4baf-b457-cd13cd876b35.png)
 
 Web Applications Infrastructure/Web Infrastructure also called internet infrastructure is the physical hardware, transmission media, and software used to interconnect computers and users on the Internet.
 
@@ -13,7 +14,7 @@ You must be able to explain system redundancy
 Know all the mentioned acronyms: LAMP, SPOF, QPS
 
 SIMPLE WEB INFRASTRUCTURE
-$'/c/Users/P\'LUCY/Desktop/alx pre coure/WEB INFRA 2.webp'
+
 
 1 server
 1 web server (Nginx)
