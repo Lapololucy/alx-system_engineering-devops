@@ -15,6 +15,7 @@ Know all the mentioned acronyms: LAMP, SPOF, QPS
 
 SIMPLE WEB INFRASTRUCTURE
 
+![download (3)](https://user-images.githubusercontent.com/113608901/227139884-10943df3-a2c0-44e8-a416-2888c8b969ef.jpg)
 
 1 server
 1 web server (Nginx)
@@ -33,4 +34,8 @@ DISTRUBUTED WEB INFRASTURE
 
 MONITORED WEB INFRASTRUCTURE
 
-$'/c/Users/P\'LUCY/Desktop/alx pre coure/WEB INFRA 3.webp'
+![download (4)](https://user-images.githubusercontent.com/113608901/227140075-b4948bb7-9f4c-4faf-acc2-eba64d51e47b.jpg)
+
+3 firewalls
+1 SSL certificate to serve www.foobar.com over HTTPS
+3 monitoring clients (data collector for Sumologic or other monitoring services)
