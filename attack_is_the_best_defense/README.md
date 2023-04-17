@@ -22,3 +22,6 @@ A packet sniffer connected to any network intercepts all data flowing over that 
 On an local area network (LAN), computers typically communicate directly with other computers or devices on the network. Anything connected to that network is exposed to all of that traffic. Computers are programmed to ignore all network traffic not intended for it.
 
 
+
+
+![attack is the best way to defend](https://user-images.githubusercontent.com/113608901/232405907-75eb2318-80e9-4a8b-ad5e-f1a20a6f9980.png)
