@@ -3,6 +3,7 @@ An Introduction to Configuration Management
 
 
 
+![configur](https://user-images.githubusercontent.com/113608901/233628787-4d6231e9-7a87-49f2-bd38-6d6792560445.png)
 
 Introduction
 As a broader subject, configuration management (CM) refers to the process of systematically handling changes to a system in a way that it maintains integrity over time. Even though this process was not originated in the IT industry, the term is broadly used to refer to server configuration management.
