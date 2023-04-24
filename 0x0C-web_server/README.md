@@ -7,11 +7,11 @@ CLIENTS AND SERVERS.
 
 Computers connected to the internet are called clients and servers. A simplified diagram of how they interact might look like this:
 
-photo
 
 
 
-Clients are the typical web user's internet-connected devices (for example, your computer connected to your Wi-Fi, or your phone connected to your mobile network) and web-accessing software available on those devices (usually a web browser like Firefox or Chrome).
+Clients are the typica![simple-client-server](https://user-images.githubusercontent.com/113608901/233948979-2230bc92-ef01-45dd-8b61-ef550de70363.png)
+l web user's internet-connected devices (for example, your computer connected to your Wi-Fi, or your phone connected to your mobile network) and web-accessing software available on those devices (usually a web browser like Firefox or Chrome).
 Servers are computers that store webpages, sites, or apps. When a client device wants to access a webpage, a copy of the webpage is downloaded from the server onto the client machine to be displayed in the user's web browser.
 THE OTHER PARTS OF THE TOOLBOX
 The client and server we've described above don't tell the whole story. There are many other parts involved, and we'll describe them below.
