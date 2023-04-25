@@ -1,24 +1,23 @@
 #!/usr/bin/env bash
-# Script that installs Nginx server and redirects /redirect_me
+# Install nginx web server
+sudo apt-get update
+sudo apt-get install nginx -y
 
-sudo apt update
-sudo apt install -y nginx
-sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" | sudo tee /var/www/html/index.html
-# OR
-# echo "Hello World!" > index.html
-# sudo mv index.html /var/www/html
+# Create a new configuration file for our redirection
+sudo tee /etc/nginx/sites-available/redirect_me <<EOF
+server {
+    listen 80;
+    server_name _;
 
-echo "server {
-	listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-        index index.html;
-        location /redirect_me {
-                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-        }
-}" > default
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}
+EOF
 
-sudo mv -f default /etc/nginx/sites-available/default
-sudo service nginx restart
+# Enable our new configuration file by creating a symlink to it
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
 
+# Test the configuration and reload nginx
+sudo nginx -t
+sudo systemctl reload nginx
