@@ -9,8 +9,8 @@ printf %s "
 backend web-backend
         balance roundrobin
         option forwardfor
-        server 9318-web-01 35.174.200.137:80 check
-        server 9318-web-02 3.85.136.72:80 check
+        server 173937-web-01 35.174.200.137:80 check
+        server 173937-web-02 3.85.136.72:80 check
 frontend proxynode
         bind *:80
         mode http
