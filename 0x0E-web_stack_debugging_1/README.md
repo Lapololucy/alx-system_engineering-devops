@@ -1,1 +1,2 @@
 ebugging usually takes a big chunk of a software engineer’s time. The art of debugging is tough and it takes years, even decades to master, and that is why seasoned software engineers are the best at it… experience. They have seen lots of broken code, buggy systems, weird edge cases and race conditions.
+![debugging](https://user-images.githubusercontent.com/113608901/235853009-be37fa7c-adfc-4e8d-91a9-fb8022b9c155.jpg)
