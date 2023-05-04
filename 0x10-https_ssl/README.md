@@ -8,3 +8,4 @@ While creating any domain at a website of domain provider, the provider system w
 The dot in the domain name delimits the sub domain name (the part of the name before the dot, eg. www.my.) and the root domain name ( the part after the dot, ie .domain.com). This means that the address my.domain.com is a sub domain of the root domain, whose name is domain.com
 
 In an administrator panel at domain provider account, you can create any number of sub domains. This means that for the root domain called domain.com it is possible to create different sub domains eg. my.domain.com, your.domain.com, school.domain.com… Creating multiple sub domains is always free and does not require you to set up new accounts on a domain provider website.
+![domain, load balancer and servers](https://user-images.githubusercontent.com/113608901/236195486-12bd495d-91b3-48eb-907a-69b7398efc39.png)
