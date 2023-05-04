@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Display information about subdomains.
+
+subdomains=("www" "lb-01" "web-01" "web-02")
+domain="$1"
+
+function dig_dn()
+{
+    INFO=$(dig "$1.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')
+	REC_TYPE=$(echo "${INFO[0]}" | awk '{print $4}')
+	DEST=$(echo "${INFO[0]}" | awk '{print $5}')
+	echo "The subdomain $1 is a $REC_TYPE record and points to $DEST"
+}
+if [ "$#" -eq 1 ]; then
+    for sub in "${subdomains[@]}"; do
+	    dig_dn "$sub"
+	done
+elif [ "$#" -gt 1 ]; then
+    dig_dn "$2"
+fi
