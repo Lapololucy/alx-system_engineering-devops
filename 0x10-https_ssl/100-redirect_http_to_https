@@ -33,18 +33,12 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-# alx, HAproxy for web servers, begin:
-
-backend web-backend
+listen 173937-lb-01
+        bind *:80
+        bind *:443 ssl crt /etc/letsencrypt/live/www.lapololucy.tech/lapololucy.pem
+        mode http
+        redirect scheme https code 301 if !{ ssl_fc }
         balance roundrobin
         option forwardfor
         server 173937-web-01 35.174.200.137:80 check
         server 173937-web-02 3.85.136.72:80 check
-frontend proxynode
-        bind *:80
-	mode http
-        bind *:443 ssl crt /etc/letsencrypt/live/www.dikalite.tech/fullchain.pem
-	http-request redirect scheme https code 301 unless { ssl_fc }
-        default_backend web-backend
-
-# alx, HAproxy for web servers, ends:
