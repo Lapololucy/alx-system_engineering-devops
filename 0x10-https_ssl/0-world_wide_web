@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
-# Display information about subdomains.
+# A script that displays domain dns informations for a domain
+domaininfo () {
+	answer_section=$(dig "$1" | grep -A1 'ANSWER SECTION' | tail -n 1)
 
-subdomains=("www" "lb-01" "web-01" "web-02")
-domain="$1"
+	subdomain=$(echo "$answer_section" | awk '{print $1;}' FS=.) 
+	record_type=$(echo "$answer_section" | awk '{print $4;}')
+	ip_address=$(echo "$answer_section" | awk '{print $5}')
 
-function dig_dn()
-{
-    INFO=$(dig "$1.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')
-	REC_TYPE=$(echo "${INFO[0]}" | awk '{print $4}')
-	DEST=$(echo "${INFO[0]}" | awk '{print $5}')
-	echo "The subdomain $1 is a $REC_TYPE record and points to $DEST"
+	echo "The subdomain $subdomain is a $record_type record and points to $ip_address" 
 }
-if [ "$#" -eq 1 ]; then
-    for sub in "${subdomains[@]}"; do
-	    dig_dn "$sub"
-	done
-elif [ "$#" -gt 1 ]; then
-    dig_dn "$2"
+
+if [ $# -eq 1 ]
+then
+	domaininfo "www.$1" 
+	domaininfo "lb-01.$1"
+	domaininfo "web-01.$1"
+	domaininfo "web-02.$1"
+elif [ $# -eq 2 ]
+then
+	domaininfo "$2.$1"
 fi
