@@ -5,6 +5,13 @@ A way to easily assess this is to simply ask an engineer to explain how a softwa
 
 Let’s practice by exploring the infrastructure side (network, servers, security…) of the question.
 
+
+
+
+
+![full stack for life](https://user-images.githubusercontent.com/113608901/237056076-87dffc66-5226-4cb1-8678-775175be9c38.jpg)
+
+
 Requirements
 General
 You can post your blog post on the platform of your choice, LinkedIn or Medium are good ones
