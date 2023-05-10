@@ -11,7 +11,7 @@ fi
 sudo tee /etc/nginx/sites-available/redirect_me << EOF
 server {
     listen 80;
-    server_name YOUR_SERVER_NAME;
+    server_name 173937-web-01;
 
     location /redirect_me {
         return 301 https://www.lapololucy.tech;
