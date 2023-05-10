@@ -1,29 +1,36 @@
 #!/usr/bin/env bash
-# Install nginx and start it
-sudo apt-get update
-sudo apt-get install nginx -y
-echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
 
-new_config=\
-"server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-               root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-                try_files \$uri \$uri/ =404;
-        }
-        if (\$request_filename ~ redirect_me){
-            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-        }
-}
-"
-
-echo "$new_config" > /etc/nginx/sites-available/default
-if [ "$(pgrep nginx)" -le 0 ];
+# Install Nginx if not already installed
+if ! command -v nginx &> /dev/null
 then
-    service nginx start
-else
-    service nginx restart
-fi;
+    sudo apt-get update
+    sudo apt-get install nginx -y
+fi
+
+# Create a new configuration file for the redirection
+sudo tee /etc/nginx/sites-available/redirect_me << EOF
+server {
+    listen 80;
+    server_name YOUR_SERVER_NAME;
+
+    location /redirect_me {
+        return 301 https://www.lapololucy.tech;
+    }
+
+    # Redirect all other requests to the default Nginx welcome page
+    location / {
+        root /var/www/html;
+        index index.html index.htm;
+    }
+}
+EOF
+
+# Enable the new configuration file
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
+
+# Remove the default Nginx configuration file
+sudo rm /etc/nginx/sites-enabled/default
+
+# Test the configuration and restart Nginx
+sudo nginx -t
+sudo systemctl restart nginx
