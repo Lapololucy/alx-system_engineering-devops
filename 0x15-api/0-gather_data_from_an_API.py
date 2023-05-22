@@ -3,8 +3,9 @@
 Python script to retrieve and display employee TODO list progress.
 """
 
-import sys
+import os
 import requests
+import sys
 
 
 def get_employee_todo_list(employee_id):
