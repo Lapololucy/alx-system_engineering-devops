@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# A script that installs nginx server on an ubuntu linux distro.
-# The installed server listens to port 80 (HTTP) for connection
-# And serves a default page index.html on the HTTP  GET request.
+# This script installs and configures Nginx on Ubuntu 20.04 LTS
 
-sudo apt-get update -y
+# Update package lists
+sudo apt-get update
 
-sudo apt-get install nginx -y
+# Install Nginx
+sudo apt-get install -y nginx
 
-echo 'Hello World!' > /var/www/html/index.html
+# Configure Nginx to listen on port 80
+sudo sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
 
-service nginx restart
+# Create a custom HTML page
+sudo bash -c "echo 'Hello World!' > /var/www/html/index.html"
+
+# Restart Nginx using the nginx.pid file
+sudo service nginx restart
