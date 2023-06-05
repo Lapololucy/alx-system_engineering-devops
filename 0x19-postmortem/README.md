@@ -1,13 +1,15 @@
 Outage Incident - Widget Wonder
 
 
-Issue Summary: 
+ ![postmorterm report](https://github.com/Lapololucy/alx-system_engineering-devops/assets/113608901/f6c4417e-ae78-468d-841d-95444149ab9a)
+Issue Summary:
 Duration: 4 hours (June 1, 2023, 09:00 AM - 01:00 PM, UTC-5) Impact: The Widget Wonder service experienced a complete outage, rendering the widgets unavailable for all users. 100% of users were affected, leading to a significant disruption in widget-related activities.
 Timeline:
 09:00 AM: The issue was detected when monitoring alerts indicated a sudden drop in server response time.
 Actions taken: The engineering team investigated the system's components, focusing on the widget rendering service and the underlying data sources. Assumptions were made that the issue might be related to a recent update.
 Misleading paths: Initial investigation efforts were mistakenly directed toward the widget rendering service, resulting in wasted time and effort.
 09:30 AM: The incident was escalated to the backend infrastructure team for further investigation.
+
 
 Actions taken: The backend team started examining the data sources and network connections, suspecting a potential issue with the database connectivity.
 Misleading paths: An extensive review of the database connections consumed additional time, only to find no abnormalities.
@@ -17,6 +19,7 @@ Actions taken: Senior management initiated a cross-functional collaboration amon
 Resolution: It was discovered that a rogue squirrel had chewed through the main power cable, causing a complete power outage in the data center. The power cable was repaired, and systems were brought back online.
 Root Cause and Resolution:
 Root cause: The outage was caused by a rogue squirrel damaging the main power cable in the data center, resulting in a complete loss of power.
+![main root cause postmorterm](https://github.com/Lapololucy/alx-system_engineering-devops/assets/113608901/5e7614ac-8e71-4aa4-8cd5-5e8d630d63ab)
 
 Resolution: The power cable was promptly repaired, and necessary measures were taken to ensure wildlife mitigation around the data center premises.
 Corrective and Preventative Measures:
