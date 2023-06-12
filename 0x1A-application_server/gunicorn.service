@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Replace <your_username> with your actual username
+USERNAME=ubuntu
+
+# Replace /path/to/your/application with the actual path to your application
+APP_PATH=/home/ubuntu/myapp
+
+# Replace /path/to/your/venv/bin/gunicorn with the actual path to your Gunicorn binary
+GUNICORN_PATH=/home/ubuntu/myapp/venv/bin/gunicorn
+
+# Get the process ID (PID) of the Gunicorn master process
+GUNICORN_PID=$(pgrep -u $USERNAME gunicorn)
+
+# Check if Gunicorn is running
+if [[ -n $GUNICORN_PID ]]; then
+  echo "Reloading Gunicorn gracefully..."
+  kill -HUP $GUNICORN_PID
+  echo "Gunicorn reloaded successfully."
+else
+  echo "Gunicorn is not running."
+fi
+

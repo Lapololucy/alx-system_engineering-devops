@@ -1,0 +1,15 @@
+server {
+    listen 80;
+    server_name 34.207.237.97;
+
+    location / {
+        proxy_pass http://0.0.0.0:5003;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /static/ {
+        alias /path/to/AirBnB_clone_v4/web_dynamic/static/;
+    }
+}
+
