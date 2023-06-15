@@ -1,23 +1,13 @@
-#!/usr/bin/env bash
+description "Gunicorn application server running AirBnB_clone_v4"
+author "Lapolo Lucy"
 
-# Replace <your_username> with your actual username
-USERNAME=ubuntu
+start on runlevel [2345]
+stop on runlevel [!2345]
 
-# Replace /path/to/your/application with the actual path to your application
-APP_PATH=/home/ubuntu/myapp
+respawn
+setuid ubuntu
+setgid www-data
 
-# Replace /path/to/your/venv/bin/gunicorn with the actual path to your Gunicorn binary
-GUNICORN_PATH=/home/ubuntu/myapp/venv/bin/gunicorn
-
-# Get the process ID (PID) of the Gunicorn master process
-GUNICORN_PID=$(pgrep -u $USERNAME gunicorn)
-
-# Check if Gunicorn is running
-if [[ -n $GUNICORN_PID ]]; then
-  echo "Reloading Gunicorn gracefully..."
-  kill -HUP $GUNICORN_PID
-  echo "Gunicorn reloaded successfully."
-else
-  echo "Gunicorn is not running."
-fi
+chdir /home/ubuntu/AirBnB_clone_v4
+exec gunicorn --workers 3 --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app >> /tmp/airbnb-access.log 2> /tmp/airbnb-error.logirbnb-access.log
 
